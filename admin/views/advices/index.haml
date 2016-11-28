@@ -26,6 +26,8 @@
                       =hidden_field_tag :advice_ids, :'data-delete-many-ids' => true
                       =submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
                       .btn.btn-default.btn-small.cancel=pat(:cancel)
+        %th.header= mat(:advice, :id)
+        %th.header= mat(:advice, :content)
         %th.header.list-row-action-header
 
     %tbody
@@ -33,6 +35,8 @@
         %tr.list-row
           %td.list-column.list-selectable
             =check_box_tag 'advice_ids[]', :value => advice.id, :class => 'list-selectable-checkbox'
+          %td.list-column=advice.id
+          %td.list-column=advice.content
           %td.list-column.list-row-action
             .list-row-action-wrapper
               =link_to tag_icon(:edit), :href => url(:advices, :edit, :id => advice.id), :rel => :tooltip, :title => "#{pat(:edit)} advice", :class => 'list-row-action-wrapper-link'
