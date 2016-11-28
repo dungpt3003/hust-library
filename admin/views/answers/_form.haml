@@ -1,0 +1,49 @@
+- error = @answer.errors.key?(:question_id) && @answer.errors[:question_id].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :question_id, :class => 'control-label'
+  .controls
+    =f.text_field :question_id, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:question_id, :class => 'text-error') : pat(:example)
+- error = @answer.errors.key?(:library_id) && @answer.errors[:library_id].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :library_id, :class => 'control-label'
+  .controls
+    =f.text_field :library_id, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:library_id, :class => 'text-error') : pat(:example)
+- error = @answer.errors.key?(:user_name) && @answer.errors[:user_name].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :user_name, :class => 'control-label'
+  .controls
+    ~f.text_area :user_name, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:user_name, :class => 'text-error') : pat(:example)
+- error = @answer.errors.key?(:user_role) && @answer.errors[:user_role].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :user_role, :class => 'control-label'
+  .controls
+    ~f.text_area :user_role, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:user_role, :class => 'text-error') : pat(:example)
+- error = @answer.errors.key?(:min_score) && @answer.errors[:min_score].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :min_score, :class => 'control-label'
+  .controls
+    =f.text_field :min_score, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:min_score, :class => 'text-error') : pat(:example)
+- error = @answer.errors.key?(:per_score) && @answer.errors[:per_score].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :per_score, :class => 'control-label'
+  .controls
+    =f.text_field :per_score, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:per_score, :class => 'text-error') : pat(:example)
+- error = @answer.errors.key?(:des_score) && @answer.errors[:des_score].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :des_score, :class => 'control-label'
+  .controls
+    =f.text_field :des_score, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:des_score, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:answers, :index), :class => 'btn btn-default'
