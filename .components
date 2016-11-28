@@ -1,0 +1,9 @@
+---
+:orm: sequel
+:test: none
+:mock: none
+:script: none
+:renderer: haml
+:stylesheet: none
+:namespace: HustLibrary
+:migration_format: number
