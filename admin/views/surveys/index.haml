@@ -38,7 +38,7 @@
           %td.list-column.list-selectable
             =check_box_tag 'survey_ids[]', :value => survey.id, :class => 'list-selectable-checkbox'
           %td.list-column=survey.id
-          %td.list-column=survey.library_id
+          %td.list-column=Library[survey.library_id].name
           %td.list-column=survey.user_name
           %td.list-column=survey.user_role
           %td.list-column.list-row-action
