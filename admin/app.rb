@@ -35,7 +35,6 @@ module HustLibrary
 
     access_control.roles_for :admin do |role|
       role.project_module :advices, '/advices'
-      role.project_module :answers, '/answers'
       role.project_module :libraries, '/libraries'
       role.project_module :questions, '/questions'
       role.project_module :accounts, '/accounts'
