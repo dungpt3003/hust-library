@@ -25,6 +25,18 @@ class Library < Sequel::Model
     10 => "Training received"
   }
 
+  LIKERT_SCORES = {
+    1 => "Extremely low",
+    2 => "Very low",
+    3 => "Low",
+    4 => "Quite low",
+    5 => "Normal",
+    6 => "Quite high",
+    7 => "High",
+    8 => "Very high",
+    9 => "Extremely high",
+  }
+
   GROUPS = {
     :much_worse => -2,
     :worse => -1,
