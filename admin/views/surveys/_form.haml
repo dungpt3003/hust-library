@@ -1,19 +1,35 @@
 - error = @survey.errors.key?(:library_id) && @survey.errors[:library_id].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
-  =f.label :library_id, :class => 'control-label'
+  =f.label :Library, :class => 'control-label'
   .controls
-    =f.text_field :library_id, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    =f.label @survey.library.name, :class => 'form-control input-large input-with-feedback', :autofocus => true
 - error = @survey.errors.key?(:user_name) && @survey.errors[:user_name].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   =f.label :user_name, :class => 'control-label'
   .controls
-    ~f.text_area :user_name, :class => 'form-control input-large input-with-feedback'
+    ~f.label @survey.user_name, :class => 'form-control input-large input-with-feedback'
 - error = @survey.errors.key?(:user_role) && @survey.errors[:user_role].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   =f.label :user_role, :class => 'control-label'
   .controls
-    ~f.text_area :user_role, :class => 'form-control input-large input-with-feedback'
+    ~f.label @survey.user_role, :class => 'form-control input-large input-with-feedback'
 
+.tabs-content
+  %table#list.table.table-striped.table-hover.table-condensed
+    %thead
+      %tr
+        %th.header= mat(:answer, :question)
+        %th.header= mat(:answer, :minimum)
+        %th.header= mat(:answer, :perceived)
+        %th.header= mat(:answer, :desired)
+
+    %tbody
+      -@survey.answers.each do |answer|
+        %tr.list-row
+          %td.list-column=Question[answer.question_id].title
+          %td.list-column=Library::LIKERT_SCORES[answer.min_score]
+          %td.list-column=Library::LIKERT_SCORES[answer.per_score]
+          %td.list-column=Library::LIKERT_SCORES[answer.des_score]
 .form-actions
   =f.submit pat(:save), :class => 'btn btn-primary'
   &nbsp;
