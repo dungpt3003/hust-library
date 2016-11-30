@@ -6,3 +6,12 @@ task generate_surveys: :environment do
      Survey.create(user_name: names.sample, user_role: roles.sample, library_id: 1)
    end
 end
+
+desc 'Generate sample answer for surveys'
+task generate_answers: :environment do
+  Survey.each do |sur|
+    Question.each do |q|
+      Answer.create(survey_id: sur.id, question_id: q.id, min_score: rand(2..6), per_score: rand(3..9), des_score: rand(6..10))
+    end
+  end
+end
