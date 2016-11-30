@@ -53,7 +53,7 @@
                   %h2 Academic digital library
                   .form-group
                     %select#select_library.selectpicker.show-tick{"data-live-search" => "true", "data-style" => "btn-success", "data-width" => "75%", :title => "Please select a lunch ..."}
-                      %option Hot Dog, Fries and a Soda
+                      %option=@libraries[0].name
                       %option Burger, Shake and a Smile
                       %option Sugar, Spice and all things nice
                       %option Baby Back Ribs
@@ -68,10 +68,10 @@
                       %option Sugar, Spice and all things nice
               .col-sm-4
                 .m-content
-                  %h2 Academic digital library
+                  %h2 Roles
                   .form-group
                     %select#select_library.selectpicker.show-tick{"data-live-search" => "true", "data-style" => "btn-success", "data-width" => "75%", :title => "Please select a lunch ..."}
-                      %option Hot Dog, Fries and a Soda
+                      %option=@roles[0]
                       %option Burger, Shake and a Smile
                       %option Sugar, Spice and all things nice
                       %option Baby Back Ribs
@@ -81,13 +81,13 @@
             .row.price
               .col-sm-12
                 .m-content
-                  %h2 Academic digital library
+                  %h2=@questions[0].title
                   %form.form-horizontal{:role => "form"}
                     .form-group.form-group-lg
                       %label.col-lg-4.control-label{:for => "error"} error
                       .col-lg-4.error
                         %select#error.selectpicker.show-tick.form-control
-                          %option pen
+                          %option=@answers[0]
                           %option pencil
                           %option{:selected => "selected"} brush
                   %form.form-horizontal{:role => "form"}

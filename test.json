@@ -1,0 +1,17 @@
+{
+  "library_id": 1,
+  "user_name": "hot dog,...",
+  "user_role": "Student",
+  "answers" : [
+    {
+      "question_id": 1,
+      "min_score": "High",
+      "per_score": "Low",
+      "des_score": "Very High"
+    },
+    {
+      ....
+    }
+  ]
+
+}
