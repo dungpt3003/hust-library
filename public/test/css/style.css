@@ -184,8 +184,6 @@ section.top .main .overlay p {
     font-size: 17px;
 }
 
-/*content end section.top*/
-
 /*content section.bottom */
 section.bottom {
     background: #f7f9fb;
@@ -205,26 +203,32 @@ section.bottom .main h3 {
     font-size: 20px;
 }
 
-section.bottom .price .m-content {
+section.bottom .question .m-content {
     background: #ffffff;
     padding-top: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     padding-bottom: 15px;
     text-align: center;
 }
 
-section.bottom .price .m-content h1 {
+section.bottom .question .m-content h1 {
     color: #25365d;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-section.bottom .price .m-content h3 {
+section.bottom .question .m-content h2 {
+    color: #2a595d;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+section.bottom .question .m-content h3 {
     color: #5a5a5a;
     font-size: 17px;
 }
 
-section.bottom .price .m-content h4 {
+section.bottom .question .m-content h4 {
     font-size: 17px;
     color: #afafaf;
 }
