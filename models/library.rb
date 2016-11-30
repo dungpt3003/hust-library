@@ -12,6 +12,19 @@ class Library < Sequel::Model
     4 => :p_megabyte
   }
 
+  SUBJECTIVE_CRITERIA = {
+    1 => "You find what you are looking for",
+    2 => "Coverage about search topics",
+    3 => "Information electronic services about new inputs",
+    4 => "Variety of search tools",
+    5 => "Navigability of the Website",
+    6 => "Understandability of the Website",
+    7 => "Added value information profits",
+    8 => "Satisfaction degree with the computing infrastructure",
+    9 => "Satisfaction degree with the response time",
+    10 => "Training received"
+  }
+
   GROUPS = {
     :much_worse => -2,
     :worse => -1,
