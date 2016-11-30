@@ -1,0 +1,289 @@
+@font-face {
+    font-family: 'Bebas Neue Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Bebas Neue Bold'), url('../fonts/BEBASNEUE BOLD.woff') format('woff');
+}
+
+body {
+    background-image: url('../img/banner.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: auto;
+    line-height: 2.0em;
+}
+
+.btn-download {
+    border-radius: 20px;
+    padding: 10px 30px 10px 30px;
+    background: #25365d;
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+/*header .upper-header*/
+header .upper-header .left {
+    text-align: center;
+}
+
+header .upper-header .logo {
+    height: 35px;
+    display: inline-block;
+    margin-top: 7px;
+    color: #fff;
+}
+
+header .upper-header .menu {
+    text-align: center;
+    height: 35px;
+    margin-top: 6px;
+}
+
+header .upper-header .menu ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0px;
+}
+
+header .upper-header .menu li {
+    display: block;
+    float: left;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    font-size: 18px;
+}
+
+@media (max-width: 480px) {
+    header .upper-header .menu li {
+        font-size: 13px;
+    }
+}
+
+/*header end .upper-header*/
+
+/*header main-header*/
+header .main-header {
+    padding: 100px 0 0 0;
+}
+
+header .main-header .main {
+    text-align: center;
+}
+
+header .main-header h1 {
+    color: #fff;
+    font-size: 60px;
+}
+
+header .main-header h3 {
+    color: #77b7ee;
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+@media (max-width: 992px) {
+    header .main-header h1 {
+        color: #fff;
+        font-size: 40px;
+    }
+
+    header .main-header {
+        padding: 50px 0 0 0;
+    }
+
+    header .main-header h3 {
+        color: #666666;
+        font-size: 15px;
+    }
+}
+
+/*header end main-header*/
+/* END HEADER */
+
+/* CONTENT */
+div.content {
+    padding-top: 250px;
+}
+
+/*content section.top*/
+section.top {
+    width: 100%;
+    display: inline-block;
+    padding-bottom: 200px;
+}
+
+section.top .main {
+    width: auto;
+    height: 350px;
+    position: relative;
+}
+
+section.top .main .title h1 {
+    font-family: Bebas Neue Bold, sans-serif;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 120px;
+}
+
+section.top .main .overlay, section.top .main .title, section.top .main .picture {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+section.top .main .overlay {
+    z-index: 5;
+    margin-top: 70px;
+    margin-left: 70px;
+    padding-right: 40%;
+}
+
+@media (max-width: 992px) {
+    section.top .main .overlay {
+        padding-right: 20%;
+    }
+}
+
+section.top .main .overlay ul {
+    padding: 0px;
+    list-style: none;
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+
+section.top .main .overlay li {
+    color: #cde7d5;
+    font-size: 17px;
+}
+
+section.top .main .overlay i {
+    color: #ff6291;
+    padding-right: 10px;
+}
+
+section.top .main .overlay h2 {
+    font-family: Bebas Neue Bold, sans-serif;
+    color: #25365d;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+section.top .main .overlay p {
+    padding-top: 20px;
+    color: #8d8d8d;
+    font-size: 17px;
+}
+
+section.top .main .picture {
+    margin-left: 50%;
+    margin-top: 90px;
+    width: auto;
+    height: 100%;
+    right: 0px;
+    z-index: 10;
+    content: url('../img/mac-book.png');
+}
+
+/*content end section.top*/
+
+/*content section.bottom */
+section.bottom {
+    background: #f7f9fb;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 70px;
+
+}
+
+section.bottom .main h1 {
+    color: #375493;
+    font-size: 47px;
+}
+
+section.bottom .main h3 {
+    font-family: OpenSans;
+    font-size: 20px;
+}
+
+section.bottom .price .m-content {
+    background: #ffffff;
+    padding-top: 10px;
+    margin-top: 5px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+section.bottom .price .m-content h1 {
+    color: #25365d;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+section.bottom .price .m-content h3 {
+    color: #5a5a5a;
+    font-size: 17px;
+}
+
+section.bottom .price .m-content h4 {
+    font-size: 17px;
+    color: #afafaf;
+}
+
+section.support .icon {
+    height: 40px;
+    width: 40px;
+}
+
+/*content endsection.bottom*/
+/* END CONTENT */
+
+/* FOOTER */
+footer {
+    background-image: url('../img/footer.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: auto;
+    padding-bottom: 400px;
+}
+
+footer .main {
+    text-align: center;
+}
+
+footer .main h1 {
+    color: #25365d;
+    font-size: 50px;
+}
+
+footer .main h3 {
+    color: #5a5a5a;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 992px) {
+    footer {
+        padding-bottom: 250px;
+    }
+
+    footer .main h1 {
+        font-size: 30px;
+    }
+
+    footer .main h3 {
+        font-size: 12px;
+    }
+}
+
+/* END FOOTER */
