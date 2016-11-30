@@ -3,43 +3,36 @@
   =f.label :name, :class => 'control-label'
   .controls
     ~f.text_area :name, :class => 'form-control input-large input-with-feedback', :autofocus => true
-    %span.help-inline=error ? f.error_message_on(:name, :class => 'text-error') : pat(:example)
 - error = @library.errors.key?(:address) && @library.errors[:address].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   =f.label :address, :class => 'control-label'
   .controls
     ~f.text_area :address, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:address, :class => 'text-error') : pat(:example)
 - error = @library.errors.key?(:phone) && @library.errors[:phone].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   =f.label :phone, :class => 'control-label'
   .controls
     ~f.text_area :phone, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:phone, :class => 'text-error') : pat(:example)
 - error = @library.errors.key?(:p_access) && @library.errors[:p_access].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
-  =f.label :p_access, :class => 'control-label'
+  =f.label "Accesses to the academic digital library per capita", :class => 'control-label'
   .controls
     =f.text_field :p_access, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:p_access, :class => 'text-error') : pat(:example)
 - error = @library.errors.key?(:p_access_point) && @library.errors[:p_access_point].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
-  =f.label :p_access_point, :class => 'control-label'
+  =f.label "Access points to the academic digital library per capita", :class => 'control-label'
   .controls
     =f.text_field :p_access_point, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:p_access_point, :class => 'text-error') : pat(:example)
 - error = @library.errors.key?(:p_query) && @library.errors[:p_query].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
-  =f.label :p_query, :class => 'control-label'
+  =f.label "Queries on the library collection per capita", :class => 'control-label'
   .controls
     =f.text_field :p_query, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:p_query, :class => 'text-error') : pat(:example)
 - error = @library.errors.key?(:p_megabyte) && @library.errors[:p_megabyte].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
-  =f.label :p_megabyte, :class => 'control-label'
+  =f.label "Megabytes of the academic digital library per capita", :class => 'control-label'
   .controls
     =f.text_field :p_megabyte, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:p_megabyte, :class => 'text-error') : pat(:example)
 
 .form-actions
   =f.submit pat(:save), :class => 'btn btn-primary'
