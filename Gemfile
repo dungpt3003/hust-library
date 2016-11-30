@@ -22,6 +22,7 @@ gem 'bcrypt'
 gem 'haml'
 gem 'pg'
 gem 'sequel'
+gem 'descriptive_statistics'
 
 # Test requirements
 
