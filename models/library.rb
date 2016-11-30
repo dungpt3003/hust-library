@@ -64,6 +64,27 @@ class Library < Sequel::Model
     end
   end
 
+  def survey_results
+    Question.map do |q|
+      {
+        question_id: q.id,
+        msl: surveys.map { |sur| sur.answers_dataset.where(question_id: q.id).first.min_score}.mean.round(2),
+        dsl: surveys.map { |sur| sur.answers_dataset.where(question_id: q.id).first.des_score}.mean.round(2),
+        ppl: surveys.map { |sur| sur.answers_dataset.where(question_id: q.id).first.per_score}.mean.round(2),
+      }
+    end
+  end
+
+  def sa_label sc_index
+    result = survey_results.select {|res| res[:question_id] == sc_index}.first
+    result[:ppl] - result[:msl]
+  end
+
+  def ss_label sc_index
+    result = survey_results.select {|res| res[:question_id] == sc_index}.first
+    result[:ppl] - result[:dsl]
+  end
+
   def group_of oc_index
     criteria = send(OBJECTIVE_CRITERIA[oc_index])
     mean = Library.mean_score[OBJECTIVE_CRITERIA[oc_index]]
