@@ -3,7 +3,6 @@
   =f.label :content, :class => 'control-label'
   .controls
     ~f.text_area :content, :class => 'form-control input-large input-with-feedback', :autofocus => true
-    %span.help-inline=error ? f.error_message_on(:content, :class => 'text-error') : pat(:example)
 
 .form-actions
   =f.submit pat(:save), :class => 'btn btn-primary'

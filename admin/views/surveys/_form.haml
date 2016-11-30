@@ -3,19 +3,16 @@
   =f.label :library_id, :class => 'control-label'
   .controls
     =f.text_field :library_id, :class => 'form-control input-large input-with-feedback', :autofocus => true
-    %span.help-inline=error ? f.error_message_on(:library_id, :class => 'text-error') : pat(:example)
 - error = @survey.errors.key?(:user_name) && @survey.errors[:user_name].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   =f.label :user_name, :class => 'control-label'
   .controls
     ~f.text_area :user_name, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:user_name, :class => 'text-error') : pat(:example)
 - error = @survey.errors.key?(:user_role) && @survey.errors[:user_role].count > 0
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   =f.label :user_role, :class => 'control-label'
   .controls
     ~f.text_area :user_role, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:user_role, :class => 'text-error') : pat(:example)
 
 .form-actions
   =f.submit pat(:save), :class => 'btn btn-primary'
