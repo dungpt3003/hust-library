@@ -57,4 +57,34 @@ class Library < Sequel::Model
   def group_of_two oc1, oc2
     (group_of(oc1) + group_of(oc2)) / 2.0
   end
+
+  def generate_advices
+    advices = []
+    # Rule 1: If G(oc13) < 0, and G(oc2) < 0, and G(oc4) < 0, then the following recommendation is generated:
+    if group_of_two(1, 3) < 0 and group_of(2) < 0 and group_of(4) < 0
+      advices << Advice[1].content
+    end
+
+    # Rule 2: If G(oc13) < 0, and G(oc2) < 0, and G(oc4) > 0, then the following recommendation is generated:
+    if group_of_two(1, 3) < 0 and group_of(2) < 0 and group_of(4) > 0
+      advices << Advice[2].content
+    end
+
+    # Rule 3: If G(oc13) < 0, and G(oc2) > 0, and G(oc4) > 0, then the following recommendation is generated:
+    if group_of_two(1, 3) < 0 and group_of(2) > 0 and group_of(4) > 0
+      advices << Advice[3].content
+    end
+
+    # Rule 4:  If G(oc13) > 0, and G(oc4) > 0, and G(oc2) < 0, then the following recommendation is generated:
+    if group_of_two(1, 3) > 0 and group_of(4) > 0 and group_of(2) < 0
+      advices << Advice[4].content
+    end
+
+    # Rule 5: If G(oc13) > 0, and G(oc2) > 0, and G(oc4) < 0, then the following recommendation is generated:
+    if group_of_two(1, 3) > 0 and group_of(2) > 0 and group_of(4) < 0
+      advices << Advice[5].content
+    end
+
+    return advices
+  end
 end
