@@ -131,6 +131,50 @@ class Library < Sequel::Model
       advices << Advice[5].content
     end
 
+    # Rule 6: If SA−1 , and G(oc4) < 0, then the following recommendation is generated:
+    if sa_label(1) < 0 and group_of(4) < 0
+      advices << Advice[6].content
+    end
+
+    # Rule 7: If SA−1 , and G(oc4) > 0, then the following recommendation is generated:
+    if sa_label(1) < 0 and group_of(4) > 0
+      advices << Advice[7].content
+    end
+
+    # Rule 8: If SA−2 , then the following recommendation is generated:
+    if sa_label(2) < 0
+      advices << Advice[8].content
+    end
+
+    # Rule 9 : If SA−3 , then the following recommendation is generated:
+    if sa_label(3) < 0
+      advices << Advice[9].content
+    end
+    # Rule 10: If SA−4 , then the following recommendation is generated:
+    if sa_label(4) < 0
+      advices << Advice[10].content
+    end
+    # Rule 11: If SA−5 , or SA−6 , then the following recommendation is generated:
+    if sa_label(5) < 0 or sa_label(6) < 0
+      advices << Advice[11].content
+    end
+    # Rule 12: If SA−7 , then the following recommendation is generated:
+    if sa_label(7) < 0
+      advices << Advice[12].content
+    end
+    # Rule 13: If SA−8 , then the following recommendation is generated:
+    if sa_label(8) < 0
+      advices << Advice[13].content
+    end
+    # Rule 14: If SA−9 , then the following recommendation is generated:
+    if sa_label(9) < 0
+      advices << Advice[14].content
+    end
+    # Rule 15: If SA−10, then the following recommendation is generated:
+    if sa_label(10) < 0
+      advices << Advice[15].content
+    end
+
     return advices
   end
 end
