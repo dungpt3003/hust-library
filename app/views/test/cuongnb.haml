@@ -1,0 +1,20 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %title Title
+  :css
+    .democlass {
+        color: red;
+    }
+  %body
+    %h1.democlass Hello World
+    %p Click the button to display the value of the class attribute of the h1 element.
+    %button{:onclick => "myFunction()"} Try it
+    %p#demo
+    :javascript
+      function myFunction() {
+          var x = document.getElementsByTagName("H1")[0].getAttribute("class");
+          document.getElementById("demo").innerHTML = x;
+      }

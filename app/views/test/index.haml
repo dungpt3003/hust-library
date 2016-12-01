@@ -48,7 +48,7 @@
               .m-content
                 %h2 Academic digital library:
                 .form-group
-                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-style" => "btn-success", "data-width" => "75%", :title => "Please select a lunch ..."}
+                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-width" => "75%"}
                     -@libraries.each do |lib|
                       %option=lib.name
             .col-sm-4
@@ -60,7 +60,7 @@
               .m-content
                 %h2 Roles
                 .form-group
-                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-style" => "btn-success", "data-width" => "75%", :title => "Please select a lunch ..."}
+                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-width" => "75%"}
                     -@roles.each do |role|
                       %option=role
           .row.main
@@ -74,21 +74,21 @@
                     .form-group.form-group-lg
                       %label.col-lg-4.control-label{:for => "minimum"} Minimum
                       .col-lg-4.minimum
-                        %select.selectpicker.show-tick.form-control
+                        %select.selectpicker.show-tick{:title => "Choose one of the following..."}
                           -@answers.each do |role|
                             %option=role
                   %form.form-horizontal{:role => "form"}
                     .form-group.form-group-lg
                       %label.col-lg-4.control-label{:for => "perceived"} Perceived
                       .col-lg-4.perceived
-                        %select.selectpicker.show-tick.form-control
+                        %select.selectpicker.show-tick{:title => "Choose one of the following..."}
                           -@answers.each do |role|
                             %option=role
                   %form.form-horizontal{:role => "form"}
                     .form-group.form-group-lg
                       %label.col-lg-4.control-label{:for => "desired"} Desired
                       .col-lg-4.desired
-                        %select.selectpicker.show-tick.form-control
+                        %select.selectpicker.show-tick{:title => "Choose one of the following..."}
                           -@answers.each do |role|
                             %option=role
           %div
