@@ -33,6 +33,32 @@
   =f.label "Megabytes of the academic digital library per capita", :class => 'control-label'
   .controls
     =f.text_field :p_megabyte, :class => 'form-control input-large input-with-feedback'
+%br
+=f.label "Report"
+.tabs-content
+  %table#list.table.table-striped.table-hover.table-condensed
+    %thead
+      %tr
+        %th.header= mat(:library, :criteria)
+        %th.header= mat(:library, :adecuacy)
+
+    %tbody
+      -@sa_label = @library.all_sa_labels
+      -@library.survey_results.each do |res|
+        %tr.list-row
+          %td.list-column=Library::SUBJECTIVE_CRITERIA[res[:question_id]]
+          %td.list-column=@sa_label[res[:question_id]]
+
+.tabs-content
+  %table#list.table.table-striped.table-hover.table-condensed
+    %thead
+      %tr
+        %th.header= mat(:library, :advice)
+
+    %tbody
+      -@library.generate_advices.each do |ad|
+        %tr.list-row
+          %td.list-column=ad
 
 .form-actions
   =f.submit pat(:save), :class => 'btn btn-primary'
