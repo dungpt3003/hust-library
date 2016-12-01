@@ -13,7 +13,10 @@ desc 'Generate sample answer for surveys'
 task generate_answers: :environment do
   Survey.each do |sur|
     Question.each do |q|
-      Answer.create(survey_id: sur.id, question_id: q.id, min_score: rand(2..6), per_score: rand(3..9), des_score: rand(6..9))
+      random_min = rand(1..8)
+      random_per = rand(1..9)
+      random_des = rand(random_min..9)
+      Answer.create(survey_id: sur.id, question_id: q.id, min_score: random_min, per_score: random_per, des_score: random_des)
     end
   end
 end

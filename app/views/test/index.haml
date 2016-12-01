@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
-    %title nhom2
+    %title Library support system
     %link{:href => "/test/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/test/css/style.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/test/css/bootstrap-select.css", :rel => "stylesheet", :type => "text/css"}/
@@ -17,8 +17,7 @@
         .row
           .col-md-3.col-sm-2.col-xs-12.left
             .logo
-              / <img src="img/mini-logo.png" class="center-block">
-              %ul NHOM 2
+          / <img src="img/mini-logo.png" class="center-block">
           .col-md-6.col-md-offset-3.col-sm-9.col-sm-of.col-xs-12
             .menu
               %ul
@@ -32,7 +31,7 @@
       .main-header
         .container
           .row.main
-            %h1 A Decision Support System to Develop a Qualyty Management in Academic Digital Libraries
+            %h1 A Decision Support System to Develop a Quality Management in Academic Digital Libraries
     / end .main-header
     / END HEADER
 
@@ -48,19 +47,19 @@
               .m-content
                 %h2 Academic digital library:
                 .form-group
-                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-width" => "75%"}
+                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-width" => "75%", :title => "Please select a digital library"}
                     -@libraries.each do |lib|
                       %option=lib.name
             .col-sm-4
               .m-content
                 %h2 User:
                 .form-group
-                  %input#textinput.form-control.input-md{:name => "textinput", :placeholder => "placeholder", :style => "cursor: auto; background-image: background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;", :type => "text"}/
+                  %input#textinput.form-control.input-md{:name => "textinput", :placeholder => "Please enter your name", :style => "cursor: auto; background-image: background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;", :type => "text"}/
             .col-sm-4
               .m-content
                 %h2 Roles
                 .form-group
-                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-width" => "75%"}
+                  %select.selectpicker.show-tick{"data-live-search" => "true", "data-width" => "75%", :title => "Please select your role"}
                     -@roles.each do |role|
                       %option=role
           .row.main
@@ -102,4 +101,3 @@
             .form-group
               .col-sm-10.col-sm-offset-2
                 %input#submit.btn.btn-primary{:name => "submit", :type => "submit", :value => "Send"}/
-

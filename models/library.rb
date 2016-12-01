@@ -64,6 +64,33 @@ class Library < Sequel::Model
     end
   end
 
+  def survey_results
+    Question.map do |q|
+      {
+        question_id: q.id,
+        msl: surveys.map { |sur| sur.answers_dataset.where(question_id: q.id).first.min_score}.mean,
+        dsl: surveys.map { |sur| sur.answers_dataset.where(question_id: q.id).first.des_score}.mean,
+        ppl: surveys.map { |sur| sur.answers_dataset.where(question_id: q.id).first.per_score}.mean,
+      }
+    end
+  end
+
+  def all_sa_labels
+    result = {}
+    survey_results.each do |res|
+      result[res[:question_id]] = (res[:ppl] - res[:msl]).round(2)
+    end
+    result
+  end
+
+  def ss_labels
+    result = {}
+    survey_results.each do |res|
+      result[res[:question_id]] = (res[:ppl] - res[:dsl]).round(2)
+    end
+    result
+  end
+
   def group_of oc_index
     criteria = send(OBJECTIVE_CRITERIA[oc_index])
     mean = Library.mean_score[OBJECTIVE_CRITERIA[oc_index]]
@@ -85,6 +112,7 @@ class Library < Sequel::Model
 
   def generate_advices
     advices = []
+    sa_labels = all_sa_labels
     # Rule 1: If G(oc13) < 0, and G(oc2) < 0, and G(oc4) < 0, then the following recommendation is generated:
     if group_of_two(1, 3) < 0 and group_of(2) < 0 and group_of(4) < 0
       advices << Advice[1].content
@@ -108,6 +136,50 @@ class Library < Sequel::Model
     # Rule 5: If G(oc13) > 0, and G(oc2) > 0, and G(oc4) < 0, then the following recommendation is generated:
     if group_of_two(1, 3) > 0 and group_of(2) > 0 and group_of(4) < 0
       advices << Advice[5].content
+    end
+
+    # Rule 6: If SA−1 , and G(oc4) < 0, then the following recommendation is generated:
+    if sa_labels[1] < 0 and group_of(4) < 0
+      advices << Advice[6].content
+    end
+
+    # Rule 7: If SA−1 , and G(oc4) > 0, then the following recommendation is generated:
+    if sa_labels[1] < 0 and group_of(4) > 0
+      advices << Advice[7].content
+    end
+
+    # Rule 8: If SA−2 , then the following recommendation is generated:
+    if sa_labels[2] < 0
+      advices << Advice[8].content
+    end
+
+    # Rule 9 : If SA−3 , then the following recommendation is generated:
+    if sa_labels[3] < 0
+      advices << Advice[9].content
+    end
+    # Rule 10: If SA−4 , then the following recommendation is generated:
+    if sa_labels[4] < 0
+      advices << Advice[10].content
+    end
+    # Rule 11: If SA−5 , or SA−6 , then the following recommendation is generated:
+    if sa_labels[5] < 0 or sa_labels[6] < 0
+      advices << Advice[11].content
+    end
+    # Rule 12: If SA−7 , then the following recommendation is generated:
+    if sa_labels[7] < 0
+      advices << Advice[12].content
+    end
+    # Rule 13: If SA−8 , then the following recommendation is generated:
+    if sa_labels[8] < 0
+      advices << Advice[13].content
+    end
+    # Rule 14: If SA−9 , then the following recommendation is generated:
+    if sa_labels[9] < 0
+      advices << Advice[14].content
+    end
+    # Rule 15: If SA−10, then the following recommendation is generated:
+    if sa_labels[10] < 0
+      advices << Advice[15].content
     end
 
     return advices
